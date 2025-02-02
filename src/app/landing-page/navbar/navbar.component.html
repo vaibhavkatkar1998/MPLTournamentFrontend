@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="navbar">
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="logo">🏏 MPL Dashboard</span>
+    <span class="spacer"></span>
+    <nav class="nav-links">
+      <a mat-button routerLink="/teams">Teams</a>
+      <a mat-button routerLink="/matches">Matches</a>
+      <a mat-button (click)="logoutFromSystem()">Logout</a>
+    </nav>
+</mat-toolbar>
+  
+  <!-- <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" class="sidenav" (closedStart)="sidenavOpened = false">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/teams" (click)="sidenav.close()">🏆 Teams</a>
+        <a mat-list-item routerLink="/matches" (click)="sidenav.close()">🏏 Matches</a>
+        <a mat-list-item routerLink="/standings" (click)="sidenav.close()">📊 Standings</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container> -->
+  

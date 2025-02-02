@@ -1,0 +1,25 @@
+<div *ngIf="matchResponseList?.length && matchResponseList.length > 0" class="card-container">
+  <mat-card class="ipl-card">
+    <!-- <img mat-card-image  alt="IPL Match"> -->
+    <mat-card-content>
+      <h2>🔥 {{matchResponseList[0]?.matchName}}</h2>
+      <h2> {{matchResponseList[0]?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponseList[0]?.matchDate,matchResponseList[0]?.matchTime) | date:'hh:mm a'}}</h2>
+      <p>{{matchResponseList[0]?.stadium}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">Vote Now</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngIf="matchResponseList?.length && matchResponseList.length > 1" class="ipl-card">
+    <!-- <img mat-card-image src="assets/ipl2.jpg" alt="IPL Teams"> -->
+    <mat-card-content>
+      <h2>🏏 {{matchResponseList[1]?.matchName}}</h2>
+      <h2> {{matchResponseList[1]?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponseList[1]?.matchDate,matchResponseList[1]?.matchTime) | date:'hh:mm a'}}</h2>
+      <p>{{matchResponseList[1]?.stadium}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button color="primary">Vote Now</button>
+      </mat-card-actions>
+  </mat-card>
+</div>
