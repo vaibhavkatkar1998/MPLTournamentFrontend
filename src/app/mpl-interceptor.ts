@@ -20,7 +20,6 @@ export class MplInterceptor implements HttpInterceptor {
         return next.handle(clonedReq).pipe(
             catchError((error: HttpErrorResponse) => {
               // If we get a 401 or 403 error, this means the token has expired or is invalid
-              debugger
               if (error.status === 401 || error.status === 403) {
                 this.loginService.logout();  // Log the user out by clearing local storage and redirecting
               }

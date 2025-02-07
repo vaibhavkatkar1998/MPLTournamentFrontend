@@ -20,7 +20,6 @@ export class LoginComponent {
 
   submit() {
     if (this.loginForm.valid) {
-      debugger
        const user = {
         userName : this.loginForm.controls["username"].value,
         userPassword : this.loginForm.controls["password"].value
@@ -28,7 +27,6 @@ export class LoginComponent {
 
        this.loginService.login(user).subscribe({
         next: (response) => {
-          debugger
           if (response && response.token) {
             localStorage.setItem("token", response.token);
             this.router.navigate(['/landing-page']);

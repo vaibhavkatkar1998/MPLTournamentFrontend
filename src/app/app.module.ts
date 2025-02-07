@@ -17,9 +17,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatchCardSectionComponent } from './landing-page/match-card-section/match-card-section.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { MplInterceptor } from './mpl-interceptor';
+import { DatePipe } from '@angular/common';
+import { VotingPopupComponent } from './landing-page/voting-popup/voting-popup.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { MplInterceptor } from './mpl-interceptor';
     LandingPageComponent,
     NavbarComponent,
     MatchCardSectionComponent,
-    LoginComponent
+    LoginComponent,
+    VotingPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -35,10 +38,12 @@ import { MplInterceptor } from './mpl-interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule, 
+    FormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: MplInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: MplInterceptor, multi: true},
+    {provide : DatePipe}
   ],
   bootstrap: [AppComponent]
 })

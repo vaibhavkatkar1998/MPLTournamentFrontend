@@ -2,3 +2,26 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Remove border and background from the toggle buttons */
+mat-button-toggle {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    text-align: left !important; /* Align text to the left */
+  justify-content: flex-start !important; /* Ensure left alignment */
+  padding-left: 10px; /* Add some left padding */
+  }
+  
+  /* Remove border from the toggle group */
+  mat-button-toggle-group {
+    border: none !important;
+  }
+  
+  /* Highlight only the selected button */
+  mat-button-toggle.mat-button-toggle-checked {
+    background-color: lightblue !important; /* Change highlight color */
+    color: black;
+    border-radius: 5px;
+  }
+  

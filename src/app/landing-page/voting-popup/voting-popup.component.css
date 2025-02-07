@@ -1,0 +1,17 @@
+.basic-container {
+  padding: 5px;
+}
+  .toggle-group {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Space between buttons */
+    align-items: left; /* Center align buttons */
+  }
+  
+  .toggle-btn {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    text-align: left;
+  }
+  

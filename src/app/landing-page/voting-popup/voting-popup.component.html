@@ -1,0 +1,13 @@
+<div class="basic-container">
+  <mat-button-toggle-group [(ngModel)]="selectedOption" appearance="standard" class="toggle-group">
+    <mat-button-toggle [value]="matchDetails?.team1" class="toggle-btn">{{matchDetails?.team1}}</mat-button-toggle>
+    <mat-button-toggle [value]="matchDetails?.team2" class="toggle-btn">{{matchDetails?.team2}}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <button mat-button color="primary" (click)="closeDialog()" [disabled]="!selectedOption">
+    Vote
+  </button>
+
+  <p *ngIf="selectedOption">You voted for: <strong>{{ selectedOption }}</strong></p>
+  
+</div>
