@@ -39,7 +39,6 @@ export class LoginService {
   }
 
   getClaim(claim: string): any {
-    debugger
     const token = this.getToken();
     if(token != null) {
       const decodedToken = this.getDecodedToken(token);
@@ -48,7 +47,6 @@ export class LoginService {
       console.error('Token is null');
       return ""
     }
-   
   }
 
 }
