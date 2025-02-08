@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { LoginService } from 'src/app/login/login.service';
 
@@ -8,6 +8,8 @@ import { LoginService } from 'src/app/login/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
+  @Input('userRole') userRole : any;
 
   constructor(private loginService : LoginService) {
 

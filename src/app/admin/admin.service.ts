@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class VotingService {
+export class AdminService {
   private apiUrl = "http://localhost:8080/"
   
   constructor(private http: HttpClient) { }
 
-  registerVote(body : any) : Observable<any> {
-    return this.http.post(`${this.apiUrl}registerVote`, body, { responseType: 'text' })
+  updateMatchResult(body : any) : Observable<any> {
+    return this.http.post(`${this.apiUrl}updateMatchResult`, body, { responseType: 'text' })
   }
 }

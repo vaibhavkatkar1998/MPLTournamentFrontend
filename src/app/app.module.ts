@@ -22,6 +22,7 @@ import { MaterialModule } from './material.module';
 import { MplInterceptor } from './mpl-interceptor';
 import { DatePipe } from '@angular/common';
 import { VotingPopupComponent } from './landing-page/voting-popup/voting-popup.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VotingPopupComponent } from './landing-page/voting-popup/voting-popup.c
     NavbarComponent,
     MatchCardSectionComponent,
     LoginComponent,
-    VotingPopupComponent
+    VotingPopupComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
