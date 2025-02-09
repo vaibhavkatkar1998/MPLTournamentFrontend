@@ -8,11 +8,9 @@ import { LoginService } from 'src/app/login/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
-  @Input('userRole') userRole : any;
-
+  userRole: any;
   constructor(private loginService : LoginService) {
-
+    this.userRole = this.loginService.getClaim("role");
   }
 
   @ViewChild('sidenav') sidenav!: MatSidenav;

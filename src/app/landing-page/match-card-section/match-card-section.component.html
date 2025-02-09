@@ -4,8 +4,8 @@
   <div class="content-wrapper">
     <!-- Main Content -->
     <mat-card class="rankings-card">
-      <mat-card-header>
-        <mat-card-title class="main-title">Hello Sir, Welcome to MPL Dashboard<br>So can you predict who will win today?</mat-card-title>
+      <mat-card-header style="justify-content: center;display:flex">
+        <mat-card-title class="main-title">Hello {{userName}}, Welcome to MPL<br>So can you predict who will win today?</mat-card-title>
       </mat-card-header>
 
       <!-- Featured Player Card -->
@@ -17,14 +17,12 @@
             <h2 class="player-name">Match : {{matchResponse?.team1 + ' vs ' + matchResponse?.team2}}</h2>
             <h2 class="player-name">Date and Time : {{matchResponse?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponse?.matchDate,matchResponse?.matchTime) | date:'hh:mm a'}}</h2>
             <h1 class="player-name">Stadium : {{matchResponse?.stadium}}</h1>
-            <div class="team-rating">
-              <mat-card-actions>
-                <button (click)="openDialog(matchResponse)" [disabled]="compareMatchTime(matchResponse)" mat-button style="color: aliceblue;" class="vote-button">Vote Now</button>
-              </mat-card-actions>
-              <mat-card-content>
-                <p *ngIf="compareMatchTime(matchResponse)"> Improvise message here for late vote</p>
-              </mat-card-content>
-            </div>
+            <mat-card-actions style="justify-content: center;display:flex;padding-bottom:5px;padding-top:5px">
+              <button (click)="openDialog(matchResponse)" [disabled]="compareMatchTime(matchResponse)" mat-button style="color: aliceblue;" class="vote-button">Vote Now</button>
+            </mat-card-actions>
+            <mat-card-content style="justify-content: center;display:flex;padding-bottom:0px">
+              <p *ngIf="compareMatchTime(matchResponse)">You are late, Voting time exceeds</p>
+            </mat-card-content>
           </div>
         </div>
       </mat-card>

@@ -23,5 +23,15 @@ mat-button-toggle {
     background-color: lightblue !important; /* Change highlight color */
     color: black;
     border-radius: 5px;
-  }
+  }  
+  
+  .mdc-form-field > label {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    padding-left: 4px !important;
+    padding-right: 0 !important;
+    order: 0 !important;
+    color: white !important;
+}
+
   

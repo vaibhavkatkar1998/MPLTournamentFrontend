@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { LandingPageService } from '../landing-page.service';
 import { DatePipe } from '@angular/common';
@@ -11,6 +11,7 @@ import { VotingPopupComponent } from 'src/app/landing-page/voting-popup/voting-p
   styleUrls: ['./match-card-section.component.css']
 })
 export class MatchCardSectionComponent implements OnInit {
+  @Input('userName') userName : any;
   matchResponseList: any[] = [];
   checkboxes = { A: false, B: false };
   openDilouge: boolean = false;
@@ -57,7 +58,7 @@ export class MatchCardSectionComponent implements OnInit {
   openDialog(matchDetails : any): void {
     if(matchDetails) {
       if(this.compareMatchTime(matchDetails)) {
-        alert("Time exceed")
+        alert("You are late, Voting time exceeds")
         return;
       }
     }

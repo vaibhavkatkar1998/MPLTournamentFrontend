@@ -11,6 +11,9 @@
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
   }
   
   .logo-container {
@@ -25,7 +28,7 @@
   .rankings-card {
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
-    padding: 2rem;
+    width: fit-content;
   }
 
   .main-title {
@@ -34,7 +37,7 @@
     margin-bottom: 2rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: left;
+    text-align: center;
   }
   
   .featured-player-card {
@@ -118,6 +121,14 @@
     margin: 0;
     color: white;
     border: aliceblue solid 1px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vote-button:disabled {
+    opacity: 0.5;  /* Makes it look faded */
+    cursor: not-allowed; /* Shows "not-allowed" cursor */
+    border-color: gray; /* Change border color to indicate disabled */
   }
   
   @media (max-width: 768px) {

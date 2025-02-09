@@ -8,9 +8,9 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent, canActivate:[AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'leaderboard', component: LeaderboardComponent }
+  { path: '', component: LoginComponent},
+  { path: 'admin', component: AdminComponent, canActivate:[AuthGuard] },
+  { path: 'leaderboard', component: LeaderboardComponent, canActivate:[AuthGuard] }
 ];  
 
 @NgModule({

@@ -1,23 +1,15 @@
 <mat-toolbar class="navbar">
     <button mat-icon-button (click)="toggleSidenav()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon style="color: white;">menu</mat-icon>
     </button>
-    <span class="logo">🏏 MPL Dashboard</span>
+    <span class="logo" style="color: white;font-weight:bold;cursor:pointer" routerLink="/landing-page">🏏 MPL Dashboard</span>
     <span class="spacer"></span>
     <nav class="nav-links">
-      <a class="logo" mat-button routerLink="/leaderboard">LeaderBoard</a>
-      <a class="logo" mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
-      <a class="logo" mat-button (click)="logoutFromSystem()">Logout</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button (click)="logoutFromSystem()">Logout</a>
     </nav>
 </mat-toolbar>
-  
-  <!-- <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="over" class="sidenav" (closedStart)="sidenavOpened = false">
-      <mat-nav-list>
-        <a mat-button routerLink="/teams">Teams</a>
-        <a mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
-        <a mat-button (click)="logoutFromSystem()">Logout</a>
-      </mat-nav-list>
-    </mat-sidenav>
-  </mat-sidenav-container> -->
+
+
   

@@ -1,60 +1,68 @@
 <app-navbar></app-navbar>
-<div style="justify-content: center;display:flex">
-    <h2>Who win todays match</h2>
-</div>
 
-<div *ngIf="matchResponseList?.length && matchResponseList.length > 0" class="card-container">
-    <mat-card class="ipl-card">
-    <!-- <img mat-card-image  alt="IPL Match"> -->
-    <mat-card-content>
-        <h2>🔥 {{matchResponseList[0]?.team1 + '/' + matchResponseList[0]?.team2}}</h2>
-    </mat-card-content>
-    <mat-card-content>
-        <mat-button-toggle-group [(ngModel)]="selectedOption1" appearance="standard" class="toggle-group">
-            <mat-button-toggle [value]="matchResponseList[0]?.team1" class="toggle-btn">{{matchResponseList[0]?.team1}}</mat-button-toggle>
-            <mat-button-toggle [value]="matchResponseList[0]?.team2" class="toggle-btn">{{matchResponseList[0]?.team2}}</mat-button-toggle>
-            <mat-button-toggle value="Cancelled" class="toggle-btn">Match cancelled</mat-button-toggle>
-          </mat-button-toggle-group>
+<div class="rankings-container">
+    <!-- Background Art -->
+  
+    <div class="content-wrapper">
+      <!-- Main Content -->
+      <mat-card class="rankings-card">
+        <mat-card-header style="justify-content: center;display:flex">
+          <mat-card-title class="main-title">Who wins today match?</mat-card-title>
+        </mat-card-header>
 
-          <mat-card-content>
-            <p>Select bet value (Default is 25)</p>
-          </mat-card-content>
-          <mat-radio-group [(ngModel)]="selectedRadioValue" class="radio-group">
-            <mat-radio-button *ngFor="let option of options" [value]="option">{{ option }}</mat-radio-button>
-          </mat-radio-group>
+        <mat-card class="featured-player-card">
+          <div class="featured-player-content">
+            <mat-card-content>
+                <mat-button-toggle-group [(ngModel)]="selectedOption1" appearance="standard" class="toggle-group">
+                    <mat-button-toggle [value]="matchResponseList[0]?.team1" class="toggle-btn">{{matchResponseList[0]?.team1}}</mat-button-toggle>
+                    <mat-button-toggle [value]="matchResponseList[0]?.team2" class="toggle-btn">{{matchResponseList[0]?.team2}}</mat-button-toggle>
+                    <mat-button-toggle value="Cancelled" class="toggle-btn">Match cancelled</mat-button-toggle>
+                  </mat-button-toggle-group>
         
-          <button mat-button color="primary" (click)="updateResult(matchResponseList[0],selectedOption1)" [disabled]="!selectedOption1">
-            Updated Match Status
-          </button>
-        
-          <p *ngIf="selectedOption1">You have selected : <strong>{{ selectedOption1 }}</strong></p>
-    </mat-card-content>
-    </mat-card>
+                  <div style="padding-top: 10px;">
+                    <p>Select bet value (Default is 25)</p>
+                  </div>
 
-    <mat-card *ngIf="matchResponseList?.length && matchResponseList.length > 1" class="ipl-card">
-    <!-- <img mat-card-image src="assets/ipl2.jpg" alt="IPL Teams"> -->
-    <mat-card-content>
-        <h2>🏏 {{matchResponseList[1]?.team1 + '/' + matchResponseList[1]?.team2}}</h2>
-    </mat-card-content>
-    <mat-card-content>
-        <mat-button-toggle-group [(ngModel)]="selectedOption2" appearance="standard" class="toggle-group">
-            <mat-button-toggle [value]="matchResponseList[1]?.team1" class="toggle-btn">{{matchResponseList[1]?.team1}}</mat-button-toggle>
-            <mat-button-toggle [value]="matchResponseList[1]?.team2" class="toggle-btn">{{matchResponseList[1]?.team2}}</mat-button-toggle>
-            <mat-button-toggle value="Cancelled" class="toggle-btn">Match cancelled</mat-button-toggle>
-          </mat-button-toggle-group>
+                  <mat-card-content>
+                    <mat-radio-group [(ngModel)]="selectedRadioValue" color="primary">
+                        <mat-radio-button style="color: white;" *ngFor="let option of options" [value]="option">{{ option }}</mat-radio-button>
+                    </mat-radio-group>
+                  </mat-card-content>
+                
+                  <mat-card-actions style="justify-content: center;display:flex;padding-bottom:5px;padding-top:5px">
+                    <button (click)="updateResult(matchResponseList[0],selectedOption1)" [disabled]="!selectedOption1" mat-button style="color: aliceblue;" class="vote-button">Update match status</button>
+                  </mat-card-actions>
+            </mat-card-content>
+          </div>
+        </mat-card>
 
-          <mat-card-content>
-            <p>Select bet value (Default is 25)</p>
-          </mat-card-content>
-          <mat-radio-group [(ngModel)]="selectedRadioValue" class="radio-group">
-            <mat-radio-button *ngFor="let option of options" [value]="option">{{ option }}</mat-radio-button>
-          </mat-radio-group>
-        
-          <button mat-button color="primary" (click)="updateResult(matchResponseList[1],selectedOption2)" [disabled]="!selectedOption2">
-            Updated Match Status
-          </button>
-        
-          <p *ngIf="selectedOption2">You have selected : <strong>{{ selectedOption2 }}</strong></p>
-    </mat-card-content>
-    </mat-card>
-</div>
+        <mat-card class="featured-player-card">
+            <div class="featured-player-content">
+              <mat-card-content>
+                  <mat-button-toggle-group [(ngModel)]="selectedOption2" appearance="standard" class="toggle-group">
+                      <mat-button-toggle [value]="matchResponseList[1]?.team1" class="toggle-btn">{{matchResponseList[1]?.team1}}</mat-button-toggle>
+                      <mat-button-toggle [value]="matchResponseList[1]?.team2" class="toggle-btn">{{matchResponseList[1]?.team2}}</mat-button-toggle>
+                      <mat-button-toggle value="Cancelled" class="toggle-btn">Match cancelled</mat-button-toggle>
+                    </mat-button-toggle-group>
+          
+                    <div style="padding-top: 10px;">
+                        <p>Select bet value (Default is 25)</p>
+                    </div>
+  
+                    <mat-card-content>
+                      <mat-radio-group [(ngModel)]="selectedRadioValue" color="primary">
+                          <mat-radio-button style="color: white;" *ngFor="let option of options" [value]="option">{{ option }}</mat-radio-button>
+                      </mat-radio-group>
+                    </mat-card-content>
+                  
+                    <mat-card-actions style="justify-content: center;display:flex;padding-bottom:5px;padding-top:5px">
+                      <button (click)="updateResult(matchResponseList[1],selectedOption2)" [disabled]="!selectedOption2" mat-button style="color: aliceblue;" class="vote-button">Update match status</button>
+                    </mat-card-actions>
+              </mat-card-content>
+            </div>
+          </mat-card>
+        </mat-card>
+    </div>
+  </div>
+  
+  
