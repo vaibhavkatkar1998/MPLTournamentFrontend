@@ -1,23 +1,29 @@
 <app-navbar></app-navbar>
-
-<div style="padding: 40px;">
-    <table mat-table [dataSource]="userDetails" class="mat-elevation-z8">
+<div class="rankings-container">
+    <!-- Background Art -->
   
-        <!-- User Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> User Name </th>
-          <td mat-cell *matCellDef="let user"> {{ user.userName }} </td>
-        </ng-container>
-      
-        <!-- Points Column -->
-        <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef> Points </th>
-          <td mat-cell *matCellDef="let user"> {{ user.totalPoints }} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-      </table>
-</div>
+    <div class="content-wrapper">
+      <!-- Main Content -->
+      <mat-card class="rankings-card">
+        <mat-card-header>
+          <mat-card-title class="main-title">MPL LEADERBOARD</mat-card-title>
+        </mat-card-header>
   
+        <!-- Featured Player Card -->
+        <div *ngFor="let userDetail of userDetails;let i=index">
+        <mat-card class="featured-player-card">
+          <div class="featured-player-content">
+            <div class="rank-number">{{i + 1}}</div>
+            <div class="player-info">
+              <h2 class="player-name">{{userDetail?.userName}}</h2>
+              <div class="team-rating">
+                <span class="team">MPL - Total Points : </span>
+                <span class="rating">{{userDetail?.totalPoints}}</span>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+        </div>
+        </mat-card>
+    </div>
+  </div>

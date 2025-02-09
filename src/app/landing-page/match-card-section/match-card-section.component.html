@@ -1,32 +1,35 @@
-<div *ngIf="matchResponseList?.length && matchResponseList.length > 0" class="card-container">
-  <mat-card class="ipl-card">
-    <!-- <img mat-card-image  alt="IPL Match"> -->
-    <mat-card-content>
-      <h2>🔥 {{matchResponseList[0]?.team1 + '/' + matchResponseList[0]?.team2}}</h2>
-      <h2> {{matchResponseList[0]?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponseList[0]?.matchDate,matchResponseList[0]?.matchTime) | date:'hh:mm a'}}</h2>
-      <p>{{matchResponseList[0]?.stadium}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button (click)="openDialog(matchResponseList[0])" [disabled]="compareMatchTime(matchResponseList[0])" mat-button color="primary">Vote Now</button>
-    </mat-card-actions>
-    <mat-card-content>
-      <p *ngIf="compareMatchTime(matchResponseList[0])"> Improvise message here for late vote</p>
-    </mat-card-content>
-  </mat-card>
+<div class="rankings-container">
+  <!-- Background Art -->
 
-  <mat-card *ngIf="matchResponseList?.length && matchResponseList.length > 1" class="ipl-card">
-    <!-- <img mat-card-image src="assets/ipl2.jpg" alt="IPL Teams"> -->
-    <mat-card-content>
-      <h2>🏏 {{matchResponseList[1]?.team1 + '/' + matchResponseList[1]?.team2}}</h2>
-      <h2> {{matchResponseList[1]?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponseList[1]?.matchDate,matchResponseList[1]?.matchTime) | date:'hh:mm a'}}</h2>
-      <p>{{matchResponseList[1]?.stadium}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button (click)="openDialog(matchResponseList[1])" [disabled]="compareMatchTime(matchResponseList[1])" mat-button color="primary">Vote Now</button>
-    </mat-card-actions>
-    <mat-card-content>
-      <p *ngIf="compareMatchTime(matchResponseList[1])"> Improvise message here for late vote</p>
-    </mat-card-content>
-  </mat-card>
+  <div class="content-wrapper">
+    <!-- Main Content -->
+    <mat-card class="rankings-card">
+      <mat-card-header>
+        <mat-card-title class="main-title">Hello Sir, Welcome to MPL Dashboard<br>So can you predict who will win today?</mat-card-title>
+      </mat-card-header>
+
+      <!-- Featured Player Card -->
+      <div *ngFor="let matchResponse of matchResponseList;let i=index">
+      <mat-card class="featured-player-card">
+        <div class="featured-player-content">
+          <div class="rank-number">{{matchResponse?.id}}</div>
+          <div class="player-info">
+            <h2 class="player-name">Match : {{matchResponse?.team1 + ' vs ' + matchResponse?.team2}}</h2>
+            <h2 class="player-name">Date and Time : {{matchResponse?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponse?.matchDate,matchResponse?.matchTime) | date:'hh:mm a'}}</h2>
+            <h1 class="player-name">Stadium : {{matchResponse?.stadium}}</h1>
+            <div class="team-rating">
+              <mat-card-actions>
+                <button (click)="openDialog(matchResponse)" [disabled]="compareMatchTime(matchResponse)" mat-button style="color: aliceblue;" class="vote-button">Vote Now</button>
+              </mat-card-actions>
+              <mat-card-content>
+                <p *ngIf="compareMatchTime(matchResponse)"> Improvise message here for late vote</p>
+              </mat-card-content>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+      </div>
+      </mat-card>
+  </div>
 </div>
 

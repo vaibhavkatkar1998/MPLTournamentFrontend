@@ -1,13 +1,13 @@
-<mat-toolbar color="primary" class="navbar">
+<mat-toolbar class="navbar">
     <button mat-icon-button (click)="toggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
     <span class="logo">🏏 MPL Dashboard</span>
     <span class="spacer"></span>
     <nav class="nav-links">
-      <a mat-button routerLink="/leaderboard">LeaderBoard</a>
-      <a mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
-      <a mat-button (click)="logoutFromSystem()">Logout</a>
+      <a class="logo" mat-button routerLink="/leaderboard">LeaderBoard</a>
+      <a class="logo" mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
+      <a class="logo" mat-button (click)="logoutFromSystem()">Logout</a>
     </nav>
 </mat-toolbar>
   
