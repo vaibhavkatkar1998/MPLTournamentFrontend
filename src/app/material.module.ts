@@ -14,6 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
 
 
 const modules = [
@@ -31,7 +32,8 @@ const modules = [
     MatCheckboxModule,
     MatDialogModule,
     MatButtonToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
 ]
 
 @NgModule({

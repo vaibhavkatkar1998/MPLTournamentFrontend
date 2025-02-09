@@ -5,7 +5,7 @@
     <span class="logo">🏏 MPL Dashboard</span>
     <span class="spacer"></span>
     <nav class="nav-links">
-      <a mat-button routerLink="/teams">Teams</a>
+      <a mat-button routerLink="/leaderboard">LeaderBoard</a>
       <a mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
       <a mat-button (click)="logoutFromSystem()">Logout</a>
     </nav>

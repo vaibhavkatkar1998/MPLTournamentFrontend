@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 40px auto; /* Equal margin from all sides */
+  }
+  
+  table {
+    width: 60%; /* Compact table size */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for elevation */
+    background: white;
+    padding: 15px;
+    margin: 0 auto; /* Ensure equal spacing from left & right */
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px 15px; /* Balanced padding */
+    font-size: 14px;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    border-radius: 12px 12px 0 0; /* Rounded corners at the top */
+  }
+  
+  tr:last-child td {
+    border-radius: 0 0 12px 12px; /* Rounded corners at the bottom */
+  }
+  

@@ -23,6 +23,7 @@ import { MplInterceptor } from './mpl-interceptor';
 import { DatePipe } from '@angular/common';
 import { VotingPopupComponent } from './landing-page/voting-popup/voting-popup.component';
 import { AdminComponent } from './admin/admin.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AdminComponent } from './admin/admin.component';
     MatchCardSectionComponent,
     LoginComponent,
     VotingPopupComponent,
-    AdminComponent
+    AdminComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
