@@ -16,9 +16,13 @@ export class LoginService {
     return this.http.post(`${this.apiUrl}custom-login`, body, { headers: { 'Content-Type': 'application/json' } });
   }
 
+  register(body : any) : Observable<any> {
+    return this.http.post(`${this.apiUrl}register`, body, { responseType: 'text' });
+  }
+
   logout() {
     localStorage.removeItem('token'); // Clear token on logout
-    this.route.navigate(['/login']);
+    this.route.navigate(['']);
   }
 
   getToken(): string | null {

@@ -1,28 +1,82 @@
 :host {
-    display: flex;
-    justify-content: center;
-    margin: 100px 0px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
 
-  .mat-form-field {
-    width: 100%;
-    min-width: 300px;
-  }
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
 
-  mat-card-title,
-  mat-card-content {
-    display: flex;
-    justify-content: center;
-  }
+.auth-card {
+  background-color: #0f061e;
+  color: white;
+}
 
-  .error {
-    padding: 16px;
-    width: 300px;
-    color: white;
-    background-color: red;
-  }
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-  .button {
-    display: flex;
-    justify-content: flex-end;
-  }
+mat-card-title {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+mat-label {
+  color: white;
+}
+
+input.mat-input-element {
+  color: white;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+button[mat-raised-button] {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #3f51b5;
+  color: white;
+}
+
+button[mat-button] {
+  width: 100%;
+  margin-top: 10px;
+  color: #3f51b5;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;  /* Makes it look faded */
+  cursor: not-allowed; /* Shows "not-allowed" cursor */
+  border-color: gray; /* Change border color to indicate disabled */
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: white;
+}
+
