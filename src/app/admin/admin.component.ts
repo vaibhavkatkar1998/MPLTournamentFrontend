@@ -13,9 +13,8 @@ import { LoadingService } from '../loading.service';
 export class AdminComponent implements OnInit {
 
   matchResponseList: any[] = [];
-  selectedOption1: string | null = null; // No default selection
-  selectedOption2: string | null = null; // No default selection
-  options = [25, 50, 75, 100];
+  selectedOption: string[] = [];
+  options = [25, 50, 100];
   selectedRadioValue = 25; // Default selected value
 
   constructor(private landingPageService : LandingPageService, private adminService : AdminService,
@@ -27,10 +26,12 @@ export class AdminComponent implements OnInit {
 
   getTodaysMatches() {
     this.loadingService.show()
-    this.landingPageService.getTodaysMatches().subscribe({
+    const fromAdmin = true;
+    this.landingPageService.getTodaysMatches(fromAdmin).subscribe({
       next: (response) => {
         if(response) {
           this.matchResponseList = response || [];
+          this.selectedOption = new Array(this.matchResponseList.length);
         }
         this.loadingService.hide();
       },

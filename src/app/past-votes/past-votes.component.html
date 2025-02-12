@@ -6,7 +6,8 @@
       <!-- Main Content -->
       <mat-card class="rankings-card">
         <mat-card-header>
-          <mat-card-title class="main-title">Last 10 votes</mat-card-title>
+          <mat-card-title *ngIf="lastTenVotes.length > 0" class="main-title">Last 10 votes</mat-card-title>
+          <mat-card-title *ngIf="lastTenVotes.length === 0" class="main-title">You haven't voted for any match yet.</mat-card-title>
         </mat-card-header>
   
         <!-- Featured Player Card -->

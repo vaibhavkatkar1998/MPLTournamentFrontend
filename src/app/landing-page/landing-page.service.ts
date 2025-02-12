@@ -10,7 +10,7 @@ export class LandingPageService {
   
   constructor(private http: HttpClient) { }
 
-  getTodaysMatches() : Observable<any> {
-    return this.http.get(`${this.apiUrl}todayMatches`)
+  getTodaysMatches(fromAdminFlag : boolean) : Observable<any> {
+    return this.http.get(`${this.apiUrl}todayMatches?fromAdmin=${fromAdminFlag}`)
   }
 }

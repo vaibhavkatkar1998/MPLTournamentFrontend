@@ -3,11 +3,12 @@ import { Injectable } from "@angular/core";
 import { Observable, catchError, throwError } from "rxjs";
 import { LoginService } from "./login/login.service";
 import { Router } from "@angular/router";
+import { NotificationService } from "./notification.service";
 
 @Injectable()
 export class MplInterceptor implements HttpInterceptor {
 
-    constructor(private loginService: LoginService, private router: Router) {}
+    constructor(private loginService: LoginService, private router: Router, private notificationService : NotificationService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
        const token = localStorage.getItem("token");
@@ -22,6 +23,7 @@ export class MplInterceptor implements HttpInterceptor {
               // If we get a 401 or 403 error, this means the token has expired or is invalid
               if (error.status === 401 || error.status === 403) {
                 this.loginService.logout();  // Log the user out by clearing local storage and redirecting
+                this.notificationService.showError("Session expired, please login again", 10000);
               }
               return throwError(error); // Rethrow the error
             })

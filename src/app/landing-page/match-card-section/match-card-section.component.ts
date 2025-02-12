@@ -28,7 +28,8 @@ export class MatchCardSectionComponent implements OnInit {
 
   getTodaysMatches() {
     this.loadingService.show()
-    this.landingPageService.getTodaysMatches().subscribe({
+    const fromAdmin = false;
+    this.landingPageService.getTodaysMatches(fromAdmin).subscribe({
       next: (response) => {
         if(response) {
           this.matchResponseList = response || [];

@@ -99,10 +99,6 @@
     margin-bottom: 2rem;
     
     .featured-player-content {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
       
       .rank-number {
         font-size: 3rem;
