@@ -4,6 +4,7 @@ import { LandingPageService } from '../landing-page.service';
 import { DatePipe } from '@angular/common';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { VotingPopupComponent } from 'src/app/landing-page/voting-popup/voting-popup.component';
+import { LoadingService } from 'src/app/loading.service';
 
 @Component({
   selector: 'app-match-card-section',
@@ -17,7 +18,7 @@ export class MatchCardSectionComponent implements OnInit {
   openDilouge: boolean = false;
 
   constructor(private landingPageService : LandingPageService, private datePipe : DatePipe,
-    public dialog: MatDialog) {}
+    public dialog: MatDialog, private loadingService: LoadingService) {}
 
 
   ngOnInit(): void {
@@ -26,14 +27,19 @@ export class MatchCardSectionComponent implements OnInit {
 
 
   getTodaysMatches() {
-   this.landingPageService.getTodaysMatches().subscribe((response) => {
-      if(response) {
-        this.matchResponseList = response || [];
+    this.loadingService.show()
+    this.landingPageService.getTodaysMatches().subscribe({
+      next: (response) => {
+        if(response) {
+          this.matchResponseList = response || [];
+        }
+        this.loadingService.hide();
+      },
+      error: (error) =>{
+        console.log(error);
+        this.loadingService.hide();
       }
-   }, 
-   (error) => {
-
-   })
+    });
   }
 
   convertToDateTime(matchDate : any,timeString: string): Date {

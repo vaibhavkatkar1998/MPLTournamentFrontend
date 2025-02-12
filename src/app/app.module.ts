@@ -25,6 +25,8 @@ import { VotingPopupComponent } from './landing-page/voting-popup/voting-popup.c
 import { AdminComponent } from './admin/admin.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PastVotesComponent } from './past-votes/past-votes.component';
+import { NotificationService } from './notification.service';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { PastVotesComponent } from './past-votes/past-votes.component';
     VotingPopupComponent,
     AdminComponent,
     LeaderboardComponent,
-    PastVotesComponent
+    PastVotesComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

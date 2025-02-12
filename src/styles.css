@@ -39,4 +39,17 @@ mat-label {
 }
 
 
-  
+.success-snackbar {
+  background-color: #4caf50 !important; /* Green */
+  color: white !important;
+}
+
+::ng-deep .error-snackbar {
+  background-color: #f44336 !important; /* Red */
+  color: white !important;
+}
+
+.info-snackbar {
+  background-color: #2196f3 !important; /* Blue */
+  color: white !important;
+}

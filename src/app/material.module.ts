@@ -15,6 +15,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 const modules = [
@@ -33,7 +35,9 @@ const modules = [
     MatDialogModule,
     MatButtonToggleModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
 ]
 
 @NgModule({

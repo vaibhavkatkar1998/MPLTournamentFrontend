@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LandingPageService } from '../landing-page/landing-page.service';
 import { DatePipe } from '@angular/common';
 import { AdminService } from './admin.service';
+import { NotificationService } from '../notification.service';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-admin',
@@ -16,33 +18,42 @@ export class AdminComponent implements OnInit {
   options = [25, 50, 75, 100];
   selectedRadioValue = 25; // Default selected value
 
-  constructor(private landingPageService : LandingPageService, private adminService : AdminService) {}
+  constructor(private landingPageService : LandingPageService, private adminService : AdminService,
+    private notificationService: NotificationService, private loadingService: LoadingService) {}
 
   ngOnInit(): void {
    this.getTodaysMatches();
   }
 
   getTodaysMatches() {
-    this.landingPageService.getTodaysMatches().subscribe((response) => {
-       if(response) {
-         this.matchResponseList = response || [];
-       }
-    }, 
-    (error) => {
- 
-    })
-   }
+    this.loadingService.show()
+    this.landingPageService.getTodaysMatches().subscribe({
+      next: (response) => {
+        if(response) {
+          this.matchResponseList = response || [];
+        }
+        this.loadingService.hide();
+      },
+      error: (error) =>{
+        console.log(error);
+        this.loadingService.hide()
+      }
+    });
+  }
 
    updateResult(matchDetails: any, matchStatus : any) {
-    console.log(this.selectedRadioValue)
+    this.loadingService.show()
     matchDetails.matchStatus = matchStatus;
     matchDetails.betValue = this.selectedRadioValue;
     this.adminService.updateMatchResult(matchDetails).subscribe({
       next : (response) => {
-        console.log(response);
+        this.loadingService.hide()
+        this.notificationService.showSuccess(response,10000);
       },
       error: (error) => {
         console.log(error);
+        this.loadingService.hide()
+        this.notificationService.showSuccess(error?.error,10000);
       }
     })
     }
