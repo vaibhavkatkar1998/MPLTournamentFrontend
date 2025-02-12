@@ -24,6 +24,7 @@ import { DatePipe } from '@angular/common';
 import { VotingPopupComponent } from './landing-page/voting-popup/voting-popup.component';
 import { AdminComponent } from './admin/admin.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { PastVotesComponent } from './past-votes/past-votes.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     LoginComponent,
     VotingPopupComponent,
     AdminComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    PastVotesComponent
   ],
   imports: [
     BrowserModule,

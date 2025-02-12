@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="rankings-container">
+    <!-- Background Art -->
+  
+    <div class="content-wrapper">
+      <!-- Main Content -->
+      <mat-card class="rankings-card">
+        <mat-card-header>
+          <mat-card-title class="main-title">Last 10 votes</mat-card-title>
+        </mat-card-header>
+  
+        <!-- Featured Player Card -->
+        <div *ngFor="let lastVote of lastTenVotes;let i=index">
+        <mat-card class="featured-player-card">
+          <div class="featured-player-content">
+            <div class="player-info">
+                <h2 class="player-name">Match : {{lastVote?.matchDetails?.team1 + ' vs ' + lastVote?.matchDetails?.team2}}</h2>
+                <h2 class="player-name">Date and Time : {{lastVote?.matchDetails?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(lastVote?.matchDetails?.matchDate,lastVote?.matchDetails?.matchTime) | date:'hh:mm a'}}</h2>
+              <div class="team-rating">
+                <span class="team">Voted for : </span>
+                <span class="rating">{{lastVote?.selectedTeam}}</span>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+        </div>
+        </mat-card>
+    </div>
+  </div>
