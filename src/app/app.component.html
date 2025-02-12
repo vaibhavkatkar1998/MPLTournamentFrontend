@@ -1,2 +1,34 @@
-<app-loading></app-loading>
-<router-outlet></router-outlet>
+<mat-toolbar class="navbar">
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon style="color: white;">menu</mat-icon>
+    </button>
+    <span class="logo" style="color: white;font-weight:bold;cursor:pointer" routerLink="/landing-page">🏏 MPL Dashboard</span>
+    <span class="spacer"></span>
+    <nav class="nav-links">
+      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/landing-page">Home</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a>
+      <a class="logo" style="color: white;font-weight:bold" mat-button (click)="logoutFromSystem()">Logout</a>
+    </nav>
+  </mat-toolbar>
+  
+  <!-- Sidenav Container -->
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" class="sidenav" (closedStart)="sidenavOpened = false">
+      <mat-nav-list>
+        <a class="logo" (click)="sidenav.close()" style="color: white;font-weight:bold" mat-button routerLink="/landing-page">Home</a><br>
+        <a class="logo" (click)="sidenav.close()" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a><br>
+        <a class="logo" (click)="sidenav.close()" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a><br>
+        <a class="logo" (click)="sidenav.close()" style="color: white;font-weight:bold" mat-button *ngIf="this.userRole === 'Admin'" routerLink="/admin">Admin</a><br>
+        <a class="logo" (click)="sidenav.close()" style="color: white;font-weight:bold" mat-button (click)="logoutFromSystem()">Logout</a><br>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Ensure the main content is inside mat-sidenav-content -->
+    <mat-sidenav-content class="main-content">
+        <app-loading></app-loading>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #0f061e !important;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+  
+  .sidenav-container {
+    height: 100vh; /* Ensure it covers the whole viewport */
+    display: flex;
+  }
+  
+  .sidenav {
+    width: 250px;
+    background-color: #0f061e !important;
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Allows the content to take up remaining space */
+    overflow: auto;
+  }
+  

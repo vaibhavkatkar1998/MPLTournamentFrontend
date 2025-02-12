@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { NavbarComponent } from './landing-page/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,7 +31,6 @@ import { LoadingComponent } from './shared/loading/loading.component';
   declarations: [
     AppComponent,
     LandingPageComponent,
-    NavbarComponent,
     MatchCardSectionComponent,
     LoginComponent,
     VotingPopupComponent,
