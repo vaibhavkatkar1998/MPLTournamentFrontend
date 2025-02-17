@@ -10,7 +10,7 @@ export class VotingService {
   
   constructor(private http: HttpClient) { }
 
-  registerVote(body : any) : Observable<any> {
-    return this.http.post(`${this.apiUrl}registerVote`, body, { responseType: 'text' })
+  registerVote(body : any, userId : any) : Observable<any> {
+    return this.http.post(`${this.apiUrl}registerVote?userId=${userId}`, body, { responseType: 'text' })
   }
 }
