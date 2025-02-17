@@ -15,9 +15,9 @@
         <div class="featured-player-content">
           <div class="rank-number">{{matchResponse?.id}}</div>
           <div class="player-info">
-            <h2 class="player-name">Match : {{matchResponse?.team1 + ' vs ' + matchResponse?.team2}}</h2>
-            <h2 class="player-name">Date and Time : {{matchResponse?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponse?.matchDate,matchResponse?.matchTime) | date:'hh:mm a'}}</h2>
-            <h1 class="player-name">Stadium : {{matchResponse?.stadium}}</h1>
+            <h2 class="player-name">Match : <span style="color: goldenrod;">{{matchResponse?.team1 + ' vs ' + matchResponse?.team2}}</span></h2>
+            <h2 class="player-name">Date and Time : <span style="color: goldenrod;">{{matchResponse?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(matchResponse?.matchDate,matchResponse?.matchTime) | date:'hh:mm a'}}</span></h2>
+            <h1 class="player-name">Stadium : <span style="color: goldenrod;">{{matchResponse?.stadium}}</span></h1>
             <mat-card-actions style="justify-content: center;display:flex;padding-bottom:5px;padding-top:5px">
               <button (click)="openDialog(matchResponse)" [disabled]="compareMatchTime(matchResponse)" mat-button style="color: aliceblue;" class="vote-button">Vote Now</button>
             </mat-card-actions>
