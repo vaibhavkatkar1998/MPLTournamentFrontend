@@ -1,0 +1,33 @@
+<div class="rankings-container">
+    <!-- Background Art -->
+  
+    <div class="content-wrapper">
+      <!-- Main Content -->
+      <mat-card class="rankings-card">
+        <mat-card-header>
+          <mat-card-title class="main-title">IPL 2025 Time Table</mat-card-title>
+        </mat-card-header>
+  
+        <!-- Featured Player Card -->
+        <div *ngFor="let match of listOfMatches;let i=index">
+        <mat-card class="featured-player-card">
+          <div class="featured-player-content">
+            <div class="player-info">
+                <h2 class="player-name">Match : {{match?.team1 + ' vs ' + match?.team2}}</h2>
+                <h2 class="player-name">Date and Time : {{match?.matchDate | date:'dd/MM/yyy'}} | {{convertToDateTime(match?.matchDate,match?.matchTime) | date:'hh:mm a'}}</h2>
+              <div class="team-rating">
+                <span class="team">Match Status : </span>
+                <span class="rating">{{match?.matchStatus}}</span>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+        </div>
+        </mat-card>
+    </div>
+    <mat-paginator
+        [pageSize]="15"
+        [length]="paginationResponse?.totalElements"
+        (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>

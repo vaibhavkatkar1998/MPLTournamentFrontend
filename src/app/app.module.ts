@@ -26,6 +26,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PastVotesComponent } from './past-votes/past-votes.component';
 import { NotificationService } from './notification.service';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { MatchTimeTableComponent } from './match-time-table/match-time-table.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
     AdminComponent,
     LeaderboardComponent,
     PastVotesComponent,
-    LoadingComponent
+    LoadingComponent,
+    MatchTimeTableComponent
   ],
   imports: [
     BrowserModule,
