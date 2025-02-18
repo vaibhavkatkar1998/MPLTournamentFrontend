@@ -27,6 +27,7 @@ import { PastVotesComponent } from './past-votes/past-votes.component';
 import { NotificationService } from './notification.service';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { MatchTimeTableComponent } from './match-time-table/match-time-table.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatchTimeTableComponent } from './match-time-table/match-time-table.com
     LeaderboardComponent,
     PastVotesComponent,
     LoadingComponent,
-    MatchTimeTableComponent
+    MatchTimeTableComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

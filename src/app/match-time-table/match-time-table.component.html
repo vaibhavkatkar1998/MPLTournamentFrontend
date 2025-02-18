@@ -25,7 +25,7 @@
         </div>
         </mat-card>
     </div>
-    <mat-paginator
+    <mat-paginator *ngIf="listOfMatches?.length !== 0"
         [pageSize]="15"
         [length]="paginationResponse?.totalElements"
         (page)="onPageChange($event)">

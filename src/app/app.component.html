@@ -13,6 +13,7 @@
       <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a>
       <a class="logo" style="color: white;font-weight:bold" mat-button *ngIf="userRole === 'Admin'" routerLink="/admin">Admin</a>
       <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/time-table">IPL-2025-TT</a>
+      <a class="logo" style="color: white;font-weight:bold" routerLink="/about" mat-button>About</a>
       <a class="logo" style="color: white;font-weight:bold" mat-button (click)="logoutFromSystem()">Logout</a>
     </nav>
   </mat-toolbar>
@@ -28,6 +29,7 @@
           <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/admin">Admin</a><br>
         </span>
         <a class="logo" (click)="closeSidenav()"  style="color: white;font-weight:bold" mat-button routerLink="/time-table">IPL-2025-TT</a><br>
+        <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" routerLink="/about" mat-button>About</a><br>
         <a class="logo" (click)="closeSidenav(); logoutFromSystem()" style="color: white;font-weight:bold" mat-button>Logout</a><br>
       </mat-nav-list>
     </mat-sidenav>
