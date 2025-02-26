@@ -5,8 +5,8 @@
     <!-- Main Content -->
     <mat-card class="rankings-card">
       <mat-card-header style="justify-content: center;display:flex">
-        <mat-card-title *ngIf="matchResponseList.length > 0" class="main-title">Hello <span style="color: goldenrod;">{{userName}}</span>, Welcome to MPL<br>So, can you predict who will win today?</mat-card-title>
-        <mat-card-title *ngIf="matchResponseList.length === 0" class="main-title">Hello <span style="color: goldenrod;">{{userName}}</span>, Welcome to MPL<br>Sorry, no matches are scheduled for today.</mat-card-title>
+        <mat-card-title *ngIf="matchResponseList.length > 0" class="main-title">Hello <span style="color: goldenrod;text-transform: capitalize;">{{userName}}</span>, Welcome to MPL<br>So, can you predict who will win today?</mat-card-title>
+        <mat-card-title *ngIf="matchResponseList.length === 0" class="main-title">Hello <span style="color: goldenrod;text-transform: capitalize;">{{userName}}</span>, Welcome to MPL<br>Sorry, no matches are scheduled for today.</mat-card-title>
       </mat-card-header>
 
       <!-- Featured Player Card -->
