@@ -3,21 +3,21 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {jwtDecode}from 'jwt-decode';
+import { environment } from 'src/environments/environments';
 
 @Injectable({ 
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = "http://localhost:8080/"
   
   constructor(private http: HttpClient, private route : Router) { }
 
   login(body : any) : Observable<any> {
-    return this.http.post(`${this.apiUrl}custom-login`, body, { headers: { 'Content-Type': 'application/json' } });
+    return this.http.post(`${environment.endPoint}custom-login`, body, { headers: { 'Content-Type': 'application/json' } });
   }
 
   register(body : any) : Observable<any> {
-    return this.http.post(`${this.apiUrl}register`, body, { responseType: 'text' });
+    return this.http.post(`${environment.endPoint}register`, body, { responseType: 'text' });
   }
 
   logout() {
