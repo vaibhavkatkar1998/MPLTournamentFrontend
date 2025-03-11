@@ -58,8 +58,8 @@ export class LoginComponent {
   onSubmit() {
     if (this.authForm.valid) {
       const user = {
-        userName : this.authForm.controls["userName"].value,
-        userPassword : this.authForm.controls["password"].value
+        userName : this.authForm.controls["userName"].value.trim(),
+        userPassword : this.authForm.controls["password"].value.trim()
        }
 
        if(this.isLogin) {
@@ -78,7 +78,12 @@ export class LoginComponent {
       next: (response) => {
         if (response && response == "User register successfully") {
           this.isLogin = true;
-          this.authForm.reset();
+          this.authForm.reset(); // Clear all fields and errors
+          // Reinitialize login form without confirmPassword
+          this.authForm = this.fb.group({
+            userName: ["", [Validators.required]],
+            password: ["", [Validators.required, Validators.minLength(6)]],
+          });
           this.successMessage = "Registration successful, please login again!!"
           this.notificationService.showInfo("Registration successful, please login again!!",10000)
           this.loadingService.hide()

@@ -1,43 +1,44 @@
-<!-- Only show navbar if user is NOT on login page -->
-<mat-toolbar class="navbar" *ngIf="showNavbar">
-    <button mat-icon-button (click)="toggleSidenav()">
-      <mat-icon style="color: white;">menu</mat-icon>
-    </button>
-    <span class="logo" style="color: white;font-weight:bold;cursor:pointer" routerLink="/landing-page">
-      🏏 MPL Dashboard
-    </span>
-    <span class="spacer"></span>
-    <nav class="nav-links">
-      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/landing-page">Home</a>
-      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a>
-      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a>
-      <a class="logo" style="color: white;font-weight:bold" mat-button *ngIf="userRole === 'Admin'" routerLink="/admin">Admin</a>
-      <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/time-table">IPL-2025-TT</a>
-      <a class="logo" style="color: white;font-weight:bold" routerLink="/about" mat-button>About</a>
-      <a class="logo" style="color: white;font-weight:bold" mat-button (click)="logoutFromSystem()">Logout</a>
-    </nav>
+<div class="app-container">
+  <!-- Fixed Navbar -->
+  <mat-toolbar class="navbar" *ngIf="showNavbar">
+      <button mat-icon-button (click)="toggleSidenav()">
+          <mat-icon style="color: white;">menu</mat-icon>
+      </button>
+      <span class="logo" style="color: white;font-weight:bold;cursor:pointer" routerLink="/landing-page">
+          🏏 MPL Dashboard
+      </span>
+      <span class="spacer"></span>
+      <nav class="nav-links">
+          <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/landing-page">Home</a>
+          <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a>
+          <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a>
+          <a class="logo" style="color: white;font-weight:bold" mat-button *ngIf="userRole === 'Admin'" routerLink="/admin">Admin</a>
+          <a class="logo" style="color: white;font-weight:bold" mat-button routerLink="/time-table">IPL-2025-TT</a>
+          <a class="logo" style="color: white;font-weight:bold" routerLink="/about" mat-button>About</a>
+          <a class="logo" style="color: white;font-weight:bold" mat-button (click)="logoutFromSystem()">Logout</a>
+      </nav>
   </mat-toolbar>
-  
+
   <!-- Sidenav Container -->
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="over" class="sidenav" (closedStart)="sidenavOpened = false">
-      <mat-nav-list>
-        <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/landing-page">Home</a><br>
-        <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a><br>
-        <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a><br>
-        <span *ngIf="userRole === 'Admin'">
-          <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/admin">Admin</a><br>
-        </span>
-        <a class="logo" (click)="closeSidenav()"  style="color: white;font-weight:bold" mat-button routerLink="/time-table">IPL-2025-TT</a><br>
-        <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" routerLink="/about" mat-button>About</a><br>
-        <a class="logo" (click)="closeSidenav(); logoutFromSystem()" style="color: white;font-weight:bold" mat-button>Logout</a><br>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <!-- Main content area -->
-    <mat-sidenav-content class="main-content">
-      <app-loading></app-loading>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
+      <mat-sidenav #sidenav mode="over" class="sidenav" (closedStart)="sidenavOpened = false">
+          <mat-nav-list>
+              <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/landing-page">Home</a><br>
+              <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/leaderboard">LeaderBoard</a><br>
+              <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/pastVotes">VotingHistory</a><br>
+              <span *ngIf="userRole === 'Admin'">
+                  <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/admin">Admin</a><br>
+              </span>
+              <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" mat-button routerLink="/time-table">IPL-2025-TT</a><br>
+              <a class="logo" (click)="closeSidenav()" style="color: white;font-weight:bold" routerLink="/about" mat-button>About</a><br>
+              <a class="logo" (click)="closeSidenav(); logoutFromSystem()" style="color: white;font-weight:bold" mat-button>Logout</a><br>
+          </mat-nav-list>
+      </mat-sidenav>
+
+      <!-- Main Content -->
+      <mat-sidenav-content class="main-content">
+          <app-loading></app-loading>
+          <router-outlet></router-outlet>
+      </mat-sidenav-content>
   </mat-sidenav-container>
-  
+</div>
