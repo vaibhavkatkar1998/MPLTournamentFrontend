@@ -27,7 +27,6 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 56px); /* Adjust 56px to match your navbar height */
     overflow: hidden;
 }
   
