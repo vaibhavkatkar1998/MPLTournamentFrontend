@@ -36,7 +36,7 @@
       </mat-sidenav>
 
       <!-- Main Content -->
-      <mat-sidenav-content class="main-content">
+      <mat-sidenav-content [ngClass]="{'main-content': showNavbar, 'main-content-no-nav': !showNavbar}">
           <app-loading></app-loading>
           <router-outlet></router-outlet>
       </mat-sidenav-content>

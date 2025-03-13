@@ -46,6 +46,7 @@ export class LoginComponent {
   toggleForm() {
     this.authForm.reset();
     this.isLogin = !this.isLogin
+    this.errorMessage = "";
     if (this.isLogin) {
       this.authForm.removeControl("confirmPassword")
     } else {

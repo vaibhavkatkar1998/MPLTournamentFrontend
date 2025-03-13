@@ -1,10 +1,12 @@
   .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     background-color: #0f061e !important;
+    display: flex;
+    align-items: center;
   }
     
   .app-container {
@@ -33,9 +35,25 @@
   .sidenav {
     width: 250px;
     background-color: #0f061e !important;
+    position: fixed; /* Fixes the sidenav */
+    top: 56px; /* Below the fixed navbar */
+    left: 0;
+    overflow-y: auto; /* Allow scrolling if content is large */
   }
   
   .main-content {
     flex-grow: 1;
-    overflow: auto;
+    overflow-y: auto;  /* Enables scrolling when content overflows */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 56px); /* Ensures it takes up available space */
 }
+
+  .main-content-no-nav{
+    flex-grow: 1;
+    overflow: hidden; /* Prevents unnecessary scrolling */
+    display: flex;
+    flex-direction: column;
+  }
