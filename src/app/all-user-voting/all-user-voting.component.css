@@ -1,0 +1,180 @@
+.rankings-container {
+    min-height: 100vh;
+    background-color: #000;
+    color: white;
+    position: relative;
+    padding: 2rem;
+  }
+  
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  
+  .logo-container {
+    margin-bottom: 2rem;
+    
+    .icc-logo {
+      height: 48px;
+      width: auto;
+    }
+  }
+  
+  .rankings-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    width: fit-content;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .featured-player-card {
+    background-color: rgba(76, 29, 149, 0.2);
+    margin-bottom: 2rem;
+    
+    .featured-player-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      
+      .rank-number {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      
+      .player-info {
+        .player-name {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 0;
+        }
+        
+        .team-rating {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 0.5rem;
+          color: goldenrod;
+          
+          .rating {
+            gap: 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  }
+  
+  .rankings-table {
+    background: transparent;
+    
+    .mat-header-row {
+      background: transparent;
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      
+      .mat-header-cell {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.875rem;
+      }
+    }
+    
+    .mat-row {
+      background: transparent;
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      
+      .mat-cell {
+        color: white;
+      }
+    }
+  }
+  
+  .team-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .full-table-link {
+    text-align: right;
+    margin-top: 1rem;
+  }
+
+  .vote-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+    border: aliceblue solid 1px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vote-button:disabled {
+    opacity: 0.5;  /* Makes it look faded */
+    cursor: not-allowed; /* Shows "not-allowed" cursor */
+    border-color: gray; /* Change border color to indicate disabled */
+  }
+  
+  @media (max-width: 768px) {
+    .rankings-container {
+      padding: 1rem;
+    }
+    
+    .background-art {
+      opacity: 0.3;
+    }
+    
+    .featured-player-content {
+      flex-direction: column;
+      text-align: center;
+      
+      .rank-number {
+        font-size: 2rem !important;
+      }
+    }
+    
+    .mat-header-row, .mat-row {
+      padding: 0.5rem;
+    }
+    
+    .mat-cell {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-title {
+      font-size: 1.25rem !important;
+    }
+    
+    .player-name {
+      font-size: 1.25rem !important;
+    }
+    
+    .mat-cell {
+      font-size: 0.75rem;
+    }
+  }

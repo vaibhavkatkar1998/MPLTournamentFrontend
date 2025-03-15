@@ -1,0 +1,29 @@
+<div class="rankings-container">
+    <!-- Background Art -->
+  
+    <div class="content-wrapper">
+      <!-- Main Content -->
+      <mat-card class="rankings-card">
+        <mat-card-header>
+          <mat-card-title *ngIf="listOfAllUserVotes.length > 0" class="main-title">Votes from all users</mat-card-title>
+          <mat-card-title *ngIf="listOfAllUserVotes.length === 0" class="main-title">Votes will be visible after the match voting closes.</mat-card-title>
+        </mat-card-header>
+  
+        <!-- Featured Player Card -->
+        <div *ngFor="let vote of listOfAllUserVotes;let i=index">
+        <mat-card class="featured-player-card">
+          <div class="featured-player-content">
+            <div class="player-info">
+                <h2 class="player-name">Match: {{ vote?.team1Name + ' (' + vote?.team1 + '%) vs ' + vote?.team2Name + ' (' + vote?.team2 + '%)' }}</h2>
+              <div class="team-rating" *ngFor="let user of vote?.totalVotes;let i=index">
+                <span class="rating">{{user?.userName}} : </span>
+                <span class="rating">{{user?.userVotingForTeam}}</span>
+              </div>
+              <div style="padding-top: 10px;">Users who haven't voted are considered as default.</div>
+            </div>
+          </div>
+        </mat-card>
+        </div>
+        </mat-card>
+    </div>
+  </div>
