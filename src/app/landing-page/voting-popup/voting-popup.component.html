@@ -1,25 +1,42 @@
 <div class="rankings-container">
-  <!-- Background Art -->
-
   <div class="content-wrapper">
-      <!-- Main Content -->
       <mat-card class="featured-player-card">
-        <div class="featured-player-content">
-          <mat-card-content>
-              <mat-button-toggle-group [(ngModel)]="selectedOption" appearance="standard" class="toggle-group">
-                  <mat-button-toggle [value]="matchDetails?.team1" class="toggle-btn">{{matchDetails?.team1}}</mat-button-toggle>
-                  <mat-button-toggle [value]="matchDetails?.team2" class="toggle-btn">{{matchDetails?.team2}}</mat-button-toggle>
-              </mat-button-toggle-group>
-              
-              <mat-card-actions style="justify-content: center;display:flex;padding-bottom:5px;padding-top:10px">
-                <button (click)="closeDialog()" [disabled]="!selectedOption" mat-button style="color: aliceblue;" class="vote-button">Vote Now</button>
-              </mat-card-actions>
+          <div class="featured-player-content">
+              <mat-card-content>
 
-              <div style="justify-content: center;display:flex;padding-top:10px">
-                <p *ngIf="selectedOption">You selected: <strong>{{ selectedOption }}</strong></p>
-              </div>
-          </mat-card-content>
-        </div>
+                  <!-- Team Selection -->
+                  <mat-button-toggle-group [(ngModel)]="selectedOption" class="team-selection" name="teamSelection" appearance="legacy">
+                      <div class="team">
+                          <img [src]="matchDetails?.team1Logo" alt="Team 1 Logo" class="team-logo">
+                          <mat-button-toggle [value]="matchDetails?.team1" class="toggle-btn">
+                              {{ matchDetails?.team1 }}
+                          </mat-button-toggle>
+                      </div>
+
+                      <span class="vs-text">VS</span>
+
+                      <div class="team">
+                          <mat-button-toggle [value]="matchDetails?.team2" class="toggle-btn">
+                              {{ matchDetails?.team2 }}
+                          </mat-button-toggle>
+                          <img [src]="matchDetails?.team2Logo" alt="Team 2 Logo" class="team-logo">
+                      </div>
+                  </mat-button-toggle-group>
+
+                  <!-- Vote Button -->
+                  <mat-card-actions class="button-container">
+                      <button (click)="closeDialog()" [disabled]="!selectedOption" mat-button class="vote-button">
+                          Vote Now
+                      </button>
+                  </mat-card-actions>
+
+                  <!-- Selection Message -->
+                  <div class="selection-message" *ngIf="selectedOption">
+                      <p>You selected: <strong>{{ selectedOption }}</strong></p>
+                  </div>
+
+              </mat-card-content>
+          </div>
       </mat-card>
   </div>
-</div>  
+</div>
