@@ -9,47 +9,52 @@ import { LoadingService } from 'src/app/loading.service';
 @Component({
   selector: 'app-match-card-section',
   templateUrl: './match-card-section.component.html',
-  styleUrls: ['./match-card-section.component.css']
+  styleUrls: ['./match-card-section.component.css'],
 })
 export class MatchCardSectionComponent implements OnInit {
-  @Input('userName') userName : any;
+  @Input('userName') userName: any;
   matchResponseList: any[] = [];
   checkboxes = { A: false, B: false };
   openDilouge: boolean = false;
 
-  constructor(private landingPageService : LandingPageService, private datePipe : DatePipe,
-    public dialog: MatDialog, private loadingService: LoadingService) {}
-
+  constructor(
+    private landingPageService: LandingPageService,
+    private datePipe: DatePipe,
+    public dialog: MatDialog,
+    private loadingService: LoadingService
+  ) {}
 
   ngOnInit(): void {
-   this.getTodaysMatches();
+    this.getTodaysMatches();
   }
 
-
   getTodaysMatches() {
-    this.loadingService.show()
+    this.loadingService.show();
     const fromAdmin = false;
     this.landingPageService.getTodaysMatches(fromAdmin).subscribe({
       next: (response) => {
-        if(response) {
+        if (response) {
           this.matchResponseList = response || [];
         }
         this.loadingService.hide();
       },
-      error: (error) =>{
+      error: (error) => {
         console.log(error);
         this.loadingService.hide();
-      }
+      },
     });
   }
 
-  convertToDateTime(matchDate : any,timeString: string): Date {
+  convertToDateTime(matchDate: any, timeString: string): Date {
     return new Date(`${matchDate}T${timeString}`); // Append a dummy date
   }
 
-  compareMatchTime(matchDetails: any) : boolean {
+  compareMatchTime(matchDetails: any): boolean {
     const currentTime = this.datePipe.transform(new Date(), 'HH:mm:ss');
-    if(this.timeToSeconds(currentTime!) > this.timeToSeconds(matchDetails?.matchTime!)) {
+    if (
+      this.timeToSeconds(currentTime!) >
+      this.timeToSeconds(matchDetails?.matchTime!)
+    ) {
       return true;
     } else {
       return false;
@@ -62,10 +67,10 @@ export class MatchCardSectionComponent implements OnInit {
     return hours * 3600 + minutes * 60 + seconds;
   }
 
-  openDialog(matchDetails : any): void {
-    if(matchDetails) {
-      if(this.compareMatchTime(matchDetails)) {
-        alert("You are late, Voting time exceeds")
+  openDialog(matchDetails: any): void {
+    if (matchDetails) {
+      if (this.compareMatchTime(matchDetails)) {
+        alert('You are late, Voting time exceeds');
         return;
       }
     }
@@ -74,6 +79,4 @@ export class MatchCardSectionComponent implements OnInit {
       data: matchDetails
     });
   }
-
-  
 }
