@@ -7,7 +7,6 @@
                   <!-- Team Selection -->
                   <mat-button-toggle-group [(ngModel)]="selectedOption" class="team-selection" name="teamSelection" appearance="legacy">
                       <div class="team">
-                          <img [src]="matchDetails?.team1Logo" alt="Team 1 Logo" class="team-logo">
                           <mat-button-toggle [value]="matchDetails?.team1" class="toggle-btn">
                               {{ matchDetails?.team1 }}
                           </mat-button-toggle>
@@ -19,7 +18,6 @@
                           <mat-button-toggle [value]="matchDetails?.team2" class="toggle-btn">
                               {{ matchDetails?.team2 }}
                           </mat-button-toggle>
-                          <img [src]="matchDetails?.team2Logo" alt="Team 2 Logo" class="team-logo">
                       </div>
                   </mat-button-toggle-group>
 
