@@ -10,6 +10,7 @@ import { LoadingService } from '../loading.service';
 export class LeaderboardComponent implements OnInit {
   userDetails: any[] = [];
   displayedColumns: string[] = ['name', 'points'];
+  totalTeamContirbution: number = 0;
 
   constructor(private leaderBoardService : LeaderboardService, private loadingService: LoadingService) {}
 
@@ -17,8 +18,11 @@ export class LeaderboardComponent implements OnInit {
    this.loadingService.show();
    this.leaderBoardService.getAllUsers().subscribe({
     next: (response) => {
-      this.loadingService.hide();
       this.userDetails = response;
+      this.userDetails.forEach(user => {
+        this.totalTeamContirbution = this.totalTeamContirbution + user?.totalPoints;
+      })
+      this.loadingService.hide();
     },
     error: (error) => {
       this.loadingService.hide();
