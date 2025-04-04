@@ -15,6 +15,7 @@ export class LoginComponent {
   authForm: FormGroup
   errorMessage: string = "";
   successMessage: string = "";
+  hide = true; // Start with password hidden
 
   constructor(private fb: FormBuilder, private loginService : LoginService, private router : Router, private notificationService: NotificationService
     ,private loadingService: LoadingService) {
