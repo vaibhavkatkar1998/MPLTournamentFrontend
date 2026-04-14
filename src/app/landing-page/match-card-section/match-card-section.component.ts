@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 import { LandingPageService } from '../landing-page.service';
-import { DatePipe } from '@angular/common';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { VotingPopupComponent } from 'src/app/landing-page/voting-popup/voting-popup.component';
 import { LoadingService } from 'src/app/loading.service';
 
@@ -19,7 +17,6 @@ export class MatchCardSectionComponent implements OnInit {
 
   constructor(
     private landingPageService: LandingPageService,
-    private datePipe: DatePipe,
     public dialog: MatDialog,
     private loadingService: LoadingService
   ) {}
@@ -46,25 +43,25 @@ export class MatchCardSectionComponent implements OnInit {
   }
 
   convertToDateTime(matchDate: any, timeString: string): Date {
-    return new Date(`${matchDate}T${timeString}`); // Append a dummy date
+    return new Date(`${matchDate}T${timeString}`);
   }
 
   compareMatchTime(matchDetails: any): boolean {
-    const currentTime = this.datePipe.transform(new Date(), 'HH:mm:ss');
-    if (
-      this.timeToSeconds(currentTime!) >
-      this.timeToSeconds(matchDetails?.matchTime!)
-    ) {
-      return true;
-    } else {
+    if (!matchDetails?.matchDate || !matchDetails?.matchTime) {
       return false;
     }
-  }
 
-  // Helper function to convert "HH:mm:ss" string to total seconds
-  timeToSeconds(time: string): number {
-    const [hours, minutes, seconds] = time.split(':').map(Number);
-    return hours * 3600 + minutes * 60 + seconds;
+    const currentDateTime = new Date();
+    const matchDateTime = this.convertToDateTime(
+      matchDetails.matchDate,
+      matchDetails.matchTime
+    );
+
+    if (Number.isNaN(matchDateTime.getTime())) {
+      return false;
+    }
+
+    return currentDateTime > matchDateTime;
   }
 
   openDialog(matchDetails: any): void {
